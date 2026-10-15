@@ -31,7 +31,7 @@
       "component": "components/models.ts",
       "params": {
         "model": "intro",
-        "freezes": "3.4:3.08"
+        "freezes": "4.15:2.33"
       },
       "path": "",
       "blend": "source-over",
