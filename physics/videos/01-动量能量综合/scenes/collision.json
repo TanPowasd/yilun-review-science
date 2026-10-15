@@ -1,7 +1,7 @@
 {
   "id": "collision",
   "name": "1 碰撞对比",
-  "duration": 360,
+  "duration": 1355,
   "background": "#0f1424",
   "nodes": [
     {
@@ -30,7 +30,8 @@
       "reveal": 1,
       "component": "components/models.ts",
       "params": {
-        "model": "collision"
+        "model": "collision",
+        "freezes": "1.6:10.11,3.4:3.73,6.0:9.53,8.5:4.64"
       },
       "path": "",
       "blend": "source-over",
