@@ -31,7 +31,7 @@
       "component": "components/models.ts",
       "params": {
         "model": "outro",
-        "freezes": "0.8:1.67,1.7:7.85,2.6:5.78,3.5:3.86"
+        "freezes": "1.45:1.02,2.35:7.85,3.25:5.78,4.15:3.86"
       },
       "path": "",
       "blend": "source-over",
