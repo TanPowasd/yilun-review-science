@@ -1,7 +1,7 @@
 {
   "id": "main",
   "name": "动量能量七大模型",
-  "duration": 3000,
+  "duration": 9753,
   "tracks": [
     {
       "id": "visual",
@@ -13,7 +13,7 @@
           "id": "clip-intro",
           "sceneId": "intro",
           "start": 0,
-          "duration": 180,
+          "duration": 381,
           "sourceIn": 0,
           "speed": 1,
           "volume": 1,
@@ -23,8 +23,8 @@
         {
           "id": "clip-collision",
           "sceneId": "collision",
-          "start": 180,
-          "duration": 360,
+          "start": 381,
+          "duration": 1355,
           "sourceIn": 0,
           "speed": 1,
           "volume": 1,
@@ -34,8 +34,8 @@
         {
           "id": "clip-board",
           "sceneId": "board",
-          "start": 540,
-          "duration": 360,
+          "start": 1736,
+          "duration": 1490,
           "sourceIn": 0,
           "speed": 1,
           "volume": 1,
@@ -45,8 +45,8 @@
         {
           "id": "clip-spring",
           "sceneId": "spring",
-          "start": 900,
-          "duration": 420,
+          "start": 3226,
+          "duration": 1209,
           "sourceIn": 0,
           "speed": 1,
           "volume": 1,
@@ -56,8 +56,8 @@
         {
           "id": "clip-wedge",
           "sceneId": "wedge",
-          "start": 1320,
-          "duration": 360,
+          "start": 4435,
+          "duration": 1412,
           "sourceIn": 0,
           "speed": 1,
           "volume": 1,
@@ -67,8 +67,8 @@
         {
           "id": "clip-bullet",
           "sceneId": "bullet",
-          "start": 1680,
-          "duration": 420,
+          "start": 5847,
+          "duration": 1116,
           "sourceIn": 0,
           "speed": 1,
           "volume": 1,
@@ -78,8 +78,8 @@
         {
           "id": "clip-boat",
           "sceneId": "boat",
-          "start": 2100,
-          "duration": 360,
+          "start": 6963,
+          "duration": 976,
           "sourceIn": 0,
           "speed": 1,
           "volume": 1,
@@ -89,8 +89,8 @@
         {
           "id": "clip-explosion",
           "sceneId": "explosion",
-          "start": 2460,
-          "duration": 300,
+          "start": 7939,
+          "duration": 881,
           "sourceIn": 0,
           "speed": 1,
           "volume": 1,
@@ -100,8 +100,8 @@
         {
           "id": "clip-outro",
           "sceneId": "outro",
-          "start": 2760,
-          "duration": 240,
+          "start": 8820,
+          "duration": 933,
           "sourceIn": 0,
           "speed": 1,
           "volume": 1,
@@ -112,10 +112,407 @@
     },
     {
       "id": "audio",
-      "name": "音频",
+      "name": "配音",
       "type": "audio",
       "muted": false,
-      "clips": []
+      "clips": [
+        {
+          "id": "cvo-intro-0",
+          "assetId": "vo-intro-0",
+          "start": 9,
+          "duration": 177,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-intro-1",
+          "assetId": "vo-intro-1",
+          "start": 194,
+          "duration": 160,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-collision-0",
+          "assetId": "vo-collision-0",
+          "start": 390,
+          "duration": 334,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-collision-1",
+          "assetId": "vo-collision-1",
+          "start": 732,
+          "duration": 157,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-collision-2",
+          "assetId": "vo-collision-2",
+          "start": 898,
+          "duration": 355,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-collision-3",
+          "assetId": "vo-collision-3",
+          "start": 1262,
+          "duration": 206,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-collision-4",
+          "assetId": "vo-collision-4",
+          "start": 1476,
+          "duration": 232,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-board-0",
+          "assetId": "vo-board-0",
+          "start": 1745,
+          "duration": 288,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-board-1",
+          "assetId": "vo-board-1",
+          "start": 2042,
+          "duration": 348,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-board-2",
+          "assetId": "vo-board-2",
+          "start": 2398,
+          "duration": 396,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-board-3",
+          "assetId": "vo-board-3",
+          "start": 2803,
+          "duration": 396,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-spring-0",
+          "assetId": "vo-spring-0",
+          "start": 3235,
+          "duration": 240,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-spring-1",
+          "assetId": "vo-spring-1",
+          "start": 3483,
+          "duration": 176,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-spring-2",
+          "assetId": "vo-spring-2",
+          "start": 3668,
+          "duration": 363,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-spring-3",
+          "assetId": "vo-spring-3",
+          "start": 4040,
+          "duration": 143,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-spring-4",
+          "assetId": "vo-spring-4",
+          "start": 4191,
+          "duration": 216,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-wedge-0",
+          "assetId": "vo-wedge-0",
+          "start": 4444,
+          "duration": 283,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-wedge-1",
+          "assetId": "vo-wedge-1",
+          "start": 4736,
+          "duration": 309,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-wedge-2",
+          "assetId": "vo-wedge-2",
+          "start": 5053,
+          "duration": 415,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-wedge-3",
+          "assetId": "vo-wedge-3",
+          "start": 5477,
+          "duration": 114,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-wedge-4",
+          "assetId": "vo-wedge-4",
+          "start": 5600,
+          "duration": 220,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-bullet-0",
+          "assetId": "vo-bullet-0",
+          "start": 5856,
+          "duration": 283,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-bullet-1",
+          "assetId": "vo-bullet-1",
+          "start": 6148,
+          "duration": 209,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-bullet-2",
+          "assetId": "vo-bullet-2",
+          "start": 6365,
+          "duration": 335,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-bullet-3",
+          "assetId": "vo-bullet-3",
+          "start": 6708,
+          "duration": 228,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-boat-0",
+          "assetId": "vo-boat-0",
+          "start": 6972,
+          "duration": 276,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-boat-1",
+          "assetId": "vo-boat-1",
+          "start": 7256,
+          "duration": 309,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-boat-2",
+          "assetId": "vo-boat-2",
+          "start": 7573,
+          "duration": 339,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-explosion-0",
+          "assetId": "vo-explosion-0",
+          "start": 7948,
+          "duration": 252,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-explosion-1",
+          "assetId": "vo-explosion-1",
+          "start": 8208,
+          "duration": 222,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-explosion-2",
+          "assetId": "vo-explosion-2",
+          "start": 8438,
+          "duration": 355,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-outro-0",
+          "assetId": "vo-outro-0",
+          "start": 8829,
+          "duration": 57,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-outro-1",
+          "assetId": "vo-outro-1",
+          "start": 8894,
+          "duration": 254,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-outro-2",
+          "assetId": "vo-outro-2",
+          "start": 9157,
+          "duration": 192,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-outro-3",
+          "assetId": "vo-outro-3",
+          "start": 9357,
+          "duration": 134,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        },
+        {
+          "id": "cvo-outro-4",
+          "assetId": "vo-outro-4",
+          "start": 9500,
+          "duration": 226,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        }
+      ]
     }
   ],
   "markers": [
@@ -126,42 +523,42 @@
     },
     {
       "id": "m-collision",
-      "frame": 180,
+      "frame": 381,
       "label": "1 碰撞对比"
     },
     {
       "id": "m-board",
-      "frame": 540,
+      "frame": 1736,
       "label": "2 板块"
     },
     {
       "id": "m-spring",
-      "frame": 900,
+      "frame": 3226,
       "label": "3 弹簧"
     },
     {
       "id": "m-wedge",
-      "frame": 1320,
+      "frame": 4435,
       "label": "4 圆弧槽"
     },
     {
       "id": "m-bullet",
-      "frame": 1680,
+      "frame": 5847,
       "label": "5 子弹打木块"
     },
     {
       "id": "m-boat",
-      "frame": 2100,
+      "frame": 6963,
       "label": "6 人船"
     },
     {
       "id": "m-explosion",
-      "frame": 2460,
+      "frame": 7939,
       "label": "7 爆炸反冲"
     },
     {
       "id": "m-outro",
-      "frame": 2760,
+      "frame": 8820,
       "label": "片尾口诀"
     }
   ]
