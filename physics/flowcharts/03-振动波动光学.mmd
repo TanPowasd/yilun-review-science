@@ -1,0 +1,22 @@
+flowchart TB
+  subgraph V[机械振动]
+    direction LR
+    p1[简谐运动 F=-kx·回复力] --> p2[振动图像·周期振幅相位]
+    p2 --> p3[弹簧振子·单摆 T=2π√L/g]
+    p3 --> p4[受迫振动·共振]
+  end
+  subgraph W[机械波]
+    direction LR
+    q1[波的形成·横波纵波] --> q2[波形图·v=λf]
+    q2 --> q3[振动图与波形图结合·多解]
+    q2 --> q4[干涉·衍射·多普勒]
+  end
+  subgraph L[光]
+    direction LR
+    r1[折射定律 n=sini/sinr·n=c/v] --> r2[全反射 sinC=1/n]
+    r2 --> r3[光导纤维·色散]
+    r1 --> r4[双缝干涉 Δx=Lλ/d·薄膜干涉]
+    r4 --> r5[衍射·偏振·激光]
+  end
+  p2 --> q1
+  q4 --> r4
