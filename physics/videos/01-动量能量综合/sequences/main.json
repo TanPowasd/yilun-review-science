@@ -1,0 +1,168 @@
+{
+  "id": "main",
+  "name": "动量能量七大模型",
+  "duration": 3000,
+  "tracks": [
+    {
+      "id": "visual",
+      "name": "画面",
+      "type": "video",
+      "muted": false,
+      "clips": [
+        {
+          "id": "clip-intro",
+          "sceneId": "intro",
+          "start": 0,
+          "duration": 180,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 8,
+          "fadeOut": 8
+        },
+        {
+          "id": "clip-collision",
+          "sceneId": "collision",
+          "start": 180,
+          "duration": 360,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 8,
+          "fadeOut": 8
+        },
+        {
+          "id": "clip-board",
+          "sceneId": "board",
+          "start": 540,
+          "duration": 360,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 8,
+          "fadeOut": 8
+        },
+        {
+          "id": "clip-spring",
+          "sceneId": "spring",
+          "start": 900,
+          "duration": 420,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 8,
+          "fadeOut": 8
+        },
+        {
+          "id": "clip-wedge",
+          "sceneId": "wedge",
+          "start": 1320,
+          "duration": 360,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 8,
+          "fadeOut": 8
+        },
+        {
+          "id": "clip-bullet",
+          "sceneId": "bullet",
+          "start": 1680,
+          "duration": 420,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 8,
+          "fadeOut": 8
+        },
+        {
+          "id": "clip-boat",
+          "sceneId": "boat",
+          "start": 2100,
+          "duration": 360,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 8,
+          "fadeOut": 8
+        },
+        {
+          "id": "clip-explosion",
+          "sceneId": "explosion",
+          "start": 2460,
+          "duration": 300,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 8,
+          "fadeOut": 8
+        },
+        {
+          "id": "clip-outro",
+          "sceneId": "outro",
+          "start": 2760,
+          "duration": 240,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 8,
+          "fadeOut": 8
+        }
+      ]
+    },
+    {
+      "id": "audio",
+      "name": "音频",
+      "type": "audio",
+      "muted": false,
+      "clips": []
+    }
+  ],
+  "markers": [
+    {
+      "id": "m-intro",
+      "frame": 0,
+      "label": "片头"
+    },
+    {
+      "id": "m-collision",
+      "frame": 180,
+      "label": "1 碰撞对比"
+    },
+    {
+      "id": "m-board",
+      "frame": 540,
+      "label": "2 板块"
+    },
+    {
+      "id": "m-spring",
+      "frame": 900,
+      "label": "3 弹簧"
+    },
+    {
+      "id": "m-wedge",
+      "frame": 1320,
+      "label": "4 圆弧槽"
+    },
+    {
+      "id": "m-bullet",
+      "frame": 1680,
+      "label": "5 子弹打木块"
+    },
+    {
+      "id": "m-boat",
+      "frame": 2100,
+      "label": "6 人船"
+    },
+    {
+      "id": "m-explosion",
+      "frame": 2460,
+      "label": "7 爆炸反冲"
+    },
+    {
+      "id": "m-outro",
+      "frame": 2760,
+      "label": "片尾口诀"
+    }
+  ]
+}
