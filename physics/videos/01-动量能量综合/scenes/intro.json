@@ -1,7 +1,7 @@
 {
   "id": "intro",
   "name": "片头",
-  "duration": 180,
+  "duration": 381,
   "background": "#0f1424",
   "nodes": [
     {
@@ -30,7 +30,8 @@
       "reveal": 1,
       "component": "components/models.ts",
       "params": {
-        "model": "intro"
+        "model": "intro",
+        "freezes": "3.4:3.08"
       },
       "path": "",
       "blend": "source-over",
