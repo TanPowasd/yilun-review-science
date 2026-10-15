@@ -1,7 +1,7 @@
 {
   "id": "outro",
   "name": "片尾口诀",
-  "duration": 240,
+  "duration": 933,
   "background": "#0f1424",
   "nodes": [
     {
@@ -30,7 +30,8 @@
       "reveal": 1,
       "component": "components/models.ts",
       "params": {
-        "model": "outro"
+        "model": "outro",
+        "freezes": "0.8:1.67,1.7:7.85,2.6:5.78,3.5:3.86"
       },
       "path": "",
       "blend": "source-over",
