@@ -1,7 +1,7 @@
 {
   "id": "explosion",
   "name": "7 爆炸反冲",
-  "duration": 300,
+  "duration": 881,
   "background": "#0f1424",
   "nodes": [
     {
@@ -30,7 +30,8 @@
       "reveal": 1,
       "component": "components/models.ts",
       "params": {
-        "model": "explosion"
+        "model": "explosion",
+        "freezes": "3.9:5.08,5.5:6.07"
       },
       "path": "",
       "blend": "source-over",
