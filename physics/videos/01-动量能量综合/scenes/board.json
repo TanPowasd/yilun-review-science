@@ -1,7 +1,7 @@
 {
   "id": "board",
   "name": "2 板块",
-  "duration": 360,
+  "duration": 1490,
   "background": "#0f1424",
   "nodes": [
     {
@@ -30,7 +30,8 @@
       "reveal": 1,
       "component": "components/models.ts",
       "params": {
-        "model": "board"
+        "model": "board",
+        "freezes": "1.6:8.6,4.9:8.57,7.9:10.5"
       },
       "path": "",
       "blend": "source-over",
