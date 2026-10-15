@@ -31,7 +31,7 @@
       "component": "components/models.ts",
       "params": {
         "model": "boat",
-        "freezes": "2.1:7.67,8.3:4.37"
+        "freezes": "2.1:7.67,8.95:3.72"
       },
       "path": "",
       "blend": "source-over",
