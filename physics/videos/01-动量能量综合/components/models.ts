@@ -530,12 +530,16 @@ function outro(s: number) {
 export default defineComponent({
   name: '动量能量七大模型',
   parameters: {
+    freezes: {type: 'string', label: '配音定格（场景秒:时长,…）', default: ''},
     model: {type: 'enum', label: '模型', options: ['intro', 'collision', 'board', 'spring', 'wedge', 'bullet', 'boat', 'explosion', 'outro'], default: 'collision'},
   },
   render(ctx, params) {
     N = [];
     R('bg', 0, 0, 1920, 1080, C.bg, 0);
-    const s = ctx.seconds;
+    // 为配音插入的画面定格：在原时间点 t 停 d 秒
+    let s = ctx.seconds;
+    const fr = String(params.freezes || '').split(',').filter(Boolean).map((p) => p.split(':').map(Number)).sort((a, b) => a[0] - b[0]);
+    for (const [t, d] of fr) { if (s < t) break; if (s < t + d) { s = t; break; } s -= d; }
     const m = String(params.model);
     if (m === 'intro') intro(s);
     else if (m === 'collision') collision(s);
