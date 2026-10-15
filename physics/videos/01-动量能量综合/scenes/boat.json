@@ -1,7 +1,7 @@
 {
   "id": "boat",
   "name": "6 人船",
-  "duration": 360,
+  "duration": 976,
   "background": "#0f1424",
   "nodes": [
     {
@@ -30,7 +30,8 @@
       "reveal": 1,
       "component": "components/models.ts",
       "params": {
-        "model": "boat"
+        "model": "boat",
+        "freezes": "2.1:7.67,8.3:4.37"
       },
       "path": "",
       "blend": "source-over",
