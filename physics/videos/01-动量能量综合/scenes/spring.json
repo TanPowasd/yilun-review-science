@@ -31,7 +31,7 @@
       "component": "components/models.ts",
       "params": {
         "model": "spring",
-        "freezes": "4.9:3.67,6.1:4.96,9.1:9.4,10.4:3.75"
+        "freezes": "4.9:3.67,6.75:4.31,9.1:10.05,10.4:3.75"
       },
       "path": "",
       "blend": "source-over",
