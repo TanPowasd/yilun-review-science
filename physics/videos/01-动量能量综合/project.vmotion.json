@@ -1,0 +1,31 @@
+{
+  "formatVersion": 1,
+  "id": "89aa9e85-682f-4c27-a144-060ad0c2ce7a",
+  "name": "动量与能量：七大模型",
+  "width": 1920,
+  "height": 1080,
+  "fps": {
+    "num": 30,
+    "den": 1
+  },
+  "colorSpace": "srgb",
+  "sampleRate": 48000,
+  "activeSequence": "main",
+  "scenes": [
+    "scenes/intro.json",
+    "scenes/collision.json",
+    "scenes/board.json",
+    "scenes/spring.json",
+    "scenes/wedge.json",
+    "scenes/bullet.json",
+    "scenes/boat.json",
+    "scenes/explosion.json",
+    "scenes/outro.json"
+  ],
+  "sequences": [
+    "sequences/main.json"
+  ],
+  "assets": [],
+  "drawings": [],
+  "sdkVersion": "0.1.0"
+}
