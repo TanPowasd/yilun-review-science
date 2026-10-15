@@ -31,7 +31,7 @@
       "component": "components/models.ts",
       "params": {
         "model": "board",
-        "freezes": "1.6:8.6,4.9:8.57,7.9:10.5"
+        "freezes": "1.6:8.6,5.5:7.97,7.9:11.1"
       },
       "path": "",
       "blend": "source-over",
