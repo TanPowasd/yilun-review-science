@@ -31,7 +31,7 @@
       "component": "components/models.ts",
       "params": {
         "model": "collision",
-        "freezes": "1.6:10.11,3.4:3.73,6.0:9.53,8.5:4.64"
+        "freezes": "1.6:10.11,3.4:3.73,6.65:8.88,8.5:5.29"
       },
       "path": "",
       "blend": "source-over",
