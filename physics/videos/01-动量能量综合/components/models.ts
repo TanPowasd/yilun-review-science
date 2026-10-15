@@ -1,4 +1,4 @@
-import {defineComponent, rect, text, ellipse, path} from '@vmotion/sdk';
+import {defineComponent, rect, text, ellipse, path, formula} from '@vmotion/sdk';
 
 // 动量守恒 × 能量守恒：七大模型动画。所有运动都由解析解 / 确定性数值积分给出，可任意帧跳转。
 const FONT = 'Vmotion Sans';
@@ -43,6 +43,31 @@ const P = (id: string, d: string, stroke: string, sw = 3, fill = 'transparent', 
 const E = (id: string, cx: number, cy: number, r: number, fill: string, opacity = 1) =>
   N.push(ellipse(id, {x: cx - r, y: cy - r, width: 2 * r, height: 2 * r, fill, opacity}));
 
+
+const F = (id: string, tex: string, x: number, y: number, size: number, color = C.text, w = 600, opacity = 1) =>
+  N.push(formula(id, tex, {x, y, width: w, height: size * 1.8, fontSize: size, fill: color, opacity}));
+// 列方程卡片：关键状态出现，动量式 + 能量式
+function eqCard(id: string, x: number, y: number, w: number, rows: [string, string, string][], a: number) {
+  if (a <= 0.01) return;
+  R(id + '-bg', x, y, w, 64 + rows.length * 62, '#1d2744', 14, C.hl, 2, a);
+  T(id + '-h', '列方程（取向右为正）', x + 22, y + 12, 22, C.hl, 700, w - 40, 'left', a);
+  rows.forEach(([tag, tex, col], i) => {
+    T(`${id}-k${i}`, tag, x + 22, y + 60 + i * 62, 22, col, 700, 90, 'left', a);
+    if (tex.startsWith('!')) T(`${id}-f${i}`, tex.slice(1), x + 110, y + 56 + i * 62, 28, C.text, 600, w - 130, 'left', a);
+    else F(`${id}-f${i}`, tex, x + 110, y + 52 + i * 62, 30, C.text, w - 130, a);
+  });
+}
+function holdBadge(on: boolean) {
+  if (!on) return;
+  R('hold-bg', 1560, 40, 240, 50, C.hl, 25);
+  R('hold-p1', 1584, 53, 7, 24, '#0b1020', 2);
+  R('hold-p2', 1597, 53, 7, 24, '#0b1020', 2);
+  T('hold-t', '定格：关键状态', 1614, 50, 22, '#0b1020', 700, 180);
+}
+function dots(k: number) {
+  for (let i = 1; i <= 7; i++) E('dot' + i, 1140 + i * 50, 66, i === k ? 11 : 7, i === k ? C.hl : i < k ? C.muted : C.line);
+}
+
 function block(id: string, x: number, groundY: number, w: number, h: number, color: string, label: string) {
   R(id, x, groundY - h, w, h, color, 8);
   T(id + '-l', label, x, groundY - h / 2 - 16, 24, '#0b1020', 700, w, 'center');
@@ -61,10 +86,12 @@ function ground(id: string, y: number, x1 = 120, x2 = 1300, label = '光滑') {
 function header(k: number, title: string) {
   T('hdr-k', `模型 ${k} / 7`, 120, 40, 24, C.hl, 600);
   T('hdr-t', title, 120, 74, 50, C.text, 700);
+  dots(k);
 }
 function caption(s: string) {
   R('cap-bg', 120, 958, 1680, 84, C.panel, 14, C.line, 2);
-  T('cap', s, 150, 975, 32, C.text, 500, 1620);
+  R('cap-bar', 120, 958, 8, 84, C.hl, 4);
+  T('cap', s, 156, 975, 32, C.text, 500, 1620);
 }
 function panel(id: string, x: number, y: number, w: number, lines: [string, string][], title = '实时读数') {
   R(id + '-bg', x, y, w, 56 + lines.length * 46, C.panel, 14, C.line, 2);
@@ -123,6 +150,12 @@ function collision(s: number) {
     ];
     panel(`p${k}`, 1320, r.y - 200, 480, lines, k ? '完全非弹性' : '弹性');
   });
+  if (tau > tc && tau < tc + 0.12) rows.forEach((r, k) => E('fl' + k, x0 + 6 * sc, r.y - 50, 40 + 500 * (tau - tc), C.hl, 0.6 * (1 - (tau - tc) / 0.12)));
+  const ea = smooth((s - 6) / 0.6);
+  if (ea > 0) {
+    F('ce1', '1\\times6=1\\times v_A+2\\times v_B,\\ \\tfrac12\\cdot1\\cdot6^2=\\tfrac12 v_A^2+\\tfrac12\\cdot2v_B^2', 160, 430, 28, C.Ep, 1100, ea);
+    F('ce2', '1\\times6=(1+2)v\\Rightarrow v=2,\\quad Q=18-\\tfrac12\\cdot3\\cdot2^2=12\\ \\mathrm{J}', 160, 750, 28, C.Q, 1100, ea);
+  }
   let cap = '同一个 A（1 kg，6 m/s）撞静止的 B（2 kg），比较两种碰撞';
   if (s > 1.5 && tau <= tc) cap = '碰前：p总 = 1×6 = 6 kg·m/s，Ek总 = ½×1×6² = 18 J';
   if (tau > tc) cap = '两种碰撞动量都守恒（都是 6），但粘在一起时动能损失最多：12 J 变成了热';
@@ -146,7 +179,8 @@ function board(s: number) {
   arrow('vb', x0 + xb * sc + 25, gy - 120, vb * 30, C.A, `${fmt(vb)} m/s`);
   arrow('vM', x0 + xM * sc + 325, gy + 110, vM * 30, C.B, vM > 0.05 ? `${fmt(vM)} m/s` : '静止');
   if (tau > 0 && tau < 2) {
-    T('f1', '← 摩擦力', x0 + xb * sc - 10, gy - 92, 20, C.Q, 600, 140);
+    arrow('f1', x0 + xb * sc, gy - 55, -60, C.Q, '');
+    T('f1t', 'f', x0 + xb * sc - 50, gy - 92, 22, C.Q, 700, 40);
   }
   // v-t 图
   const gx = 160, gy2 = 930, gw = 600, gh = 190;
@@ -182,6 +216,12 @@ function board(s: number) {
     [`p总 = ${fmt(vb + 2 * vM)} kg·m/s`, C.hl],
     [`相对滑动 = ${fmt(xb - xM, 2)} m`, C.Q],
   ]);
+  holdBadge(holding === 0);
+  eqCard('eq', 1360, 430, 440, [
+    ['动量', '1\\times6=(1+2)v\\Rightarrow v=2', C.hl],
+    ['能量', 'Q=\\tfrac12\\cdot1\\cdot6^2-\\tfrac12\\cdot3\\cdot2^2=12', C.Q],
+    ['热量', '\\mu mgL=Q\\Rightarrow L=6\\ \\mathrm{m}', C.Q],
+  ], tau >= 2 ? smooth((s - (1.5 + 2 / 0.6)) / 0.6) : 0);
   let cap = '物块 m = 1 kg 以 6 m/s 滑上静止木板 M = 2 kg，μ = 0.2，地面光滑';
   if (tau > 0 && tau < 2) cap = '摩擦力是内力 → 动量守恒；摩擦生热 → 动能不断减少';
   if (holding === 0) cap = '共速 v = 2 m/s，物块恰好滑到右端：Q = 18 − 6 = 12 J，L = Q/(μmg) = 6 m';
@@ -223,6 +263,12 @@ function springModel(s: number) {
     [`p总 = ${fmt(2 * vA + vB)} kg·m/s`, C.hl],
     [`弹性势能 = ${fmt(ep, 2)} J`, C.Ep],
   ]);
+  holdBadge(holding === 0);
+  const tHold = 1.5 + (tc + Tc / 2) / 0.25;
+  eqCard('eq', 1360, 430, 440, [
+    ['动量', '2\\times3=(2+1)v\\Rightarrow v=2', C.hl],
+    ['能量', 'E_p=\\tfrac12\\cdot2\\cdot3^2-\\tfrac12\\cdot3\\cdot2^2=3', C.Ep],
+  ], smooth((s - tHold) / 0.6));
   let cap = 'A（2 kg）以 3 m/s 冲向连着弹簧的 B（1 kg），整个过程没有摩擦';
   if (phase === 1 && vA > vB + 0.02) cap = 'A 比 B 快 → 越靠越近 → 弹簧被压缩，动能变成弹性势能';
   if (holding === 0) cap = '弹簧最短：A、B 共速 2 m/s，弹性势能最大 Ep = 9 − 6 = 3 J';
@@ -307,6 +353,12 @@ function wedge(s: number) {
     [`p水平 = ${fmt(vbx + 3 * Xd)} kg·m/s`, C.hl],
     [`高度 h = ${fmt(Math.max(0, h), 2)} m`, C.Eg],
   ]);
+  holdBadge(holding === 0);
+  eqCard('eq', 1360, 430, 440, [
+    ['动量', '1\\times4=(1+3)v\\Rightarrow v=1', C.hl],
+    ['能量', '\\tfrac12\\cdot1\\cdot4^2=\\tfrac12\\cdot4\\cdot1^2+mgh', C.Eg],
+    ['结果', 'h=0.6\\ \\mathrm{m}', C.Eg],
+  ], smooth((s - (1.5 + (tIn + WEDGE.top) / 0.45)) / 0.6));
   let cap = '小球 m = 1 kg 以 4 m/s 冲上光滑、可自由滑动的圆弧槽 M = 3 kg';
   if (phase === 1) cap = '竖直方向有重力 → 只有水平动量守恒；全程光滑 → 机械能守恒';
   if (holding === 0) cap = '最高点：球和槽水平共速 1 m/s（球不是静止！）h = (8 − 2)/10 = 0.6 m';
@@ -335,7 +387,7 @@ function bullet(s: number) {
   }
   arrow('vb', x0 + tip * sc - 20, gy - 230, vb * 14, C.A, `子弹 ${fmt(vb)} m/s`);
   arrow('vB', x0 + xB * sc + 66, gy + 60, vB * 14, C.B, vB > 0.05 ? `木块 ${fmt(vB)} m/s` : '木块 静止');
-  T('slow', '慢放 25 倍', 1600, 120, 24, C.muted, 600, 200);
+  T('slow', '慢放 25 倍', 1360, 150, 22, C.muted, 600, 200);
   const ekb = 0.5 * 0.2 * vb * vb, ekB = 0.5 * 0.8 * vB * vB;
   bars('en', 160, 860, 10, [
     {label: 'Ek子弹', value: ekb, color: C.A},
@@ -348,6 +400,12 @@ function bullet(s: number) {
     [`p总 = ${fmt(0.2 * vb + 0.8 * vB)} kg·m/s`, C.hl],
     [`热 Q = ${fmt(10 - ekb - ekB, 2)} J`, C.Q],
   ]);
+  holdBadge(holding === 0);
+  eqCard('eq', 1360, 460, 440, [
+    ['动量', '0.2\\times10=(0.2+0.8)v\\Rightarrow v=2', C.hl],
+    ['能量', 'Q=10-\\tfrac12\\cdot1\\cdot2^2=8', C.Q],
+    ['热量', 'Q=f\\cdot d', C.Q],
+  ], smooth((s - (1.5 + 0.16 / 0.04)) / 0.6));
   let cap = '子弹 m = 0.2 kg 以 10 m/s 射向静止木块 M = 0.8 kg，地面光滑';
   if (phase === 1) cap = '时间极短，内力 ≫ 外力 → 动量守恒；子弹受摩擦阻力 → 生热';
   if (holding === 0) cap = '子弹停在木块里 = 共速 2 m/s：Q = 10 − 2 = 8 J = f·d（d 是相对位移）';
@@ -391,6 +449,11 @@ function boat(s: number) {
     ['p总 = 0（始终）', C.hl],
     [`50×${fmt(xp - 4.2, 2)} + 150×(${fmt(Xb - 4, 2)}) = 0`, C.text],
   ], '读数');
+  eqCard('eq', 1360, 430, 440, [
+    ['动量', '!50·x人 = 150·x船', C.hl],
+    ['几何', '!x人 + x船 = 4 m', C.text],
+    ['结果', '!x人 = 3 m，x船 = 1 m', C.A],
+  ], smooth((s - 8.3) / 0.6));
   let cap = '人 m = 50 kg 站在静止的船 M = 150 kg 一端，走到另一端；水的阻力不计';
   if (s > 2 && s < 8.3) cap = '人向前走，船就向后退：任何时刻 m·v人 = M·v船，总动量始终为 0';
   if (s >= 8.3) cap = '位移也成比例：50·x人 = 150·x船，x人 + x船 = 4 m → x人 = 3 m，x船 = 1 m';
@@ -428,6 +491,11 @@ function explosion(s: number) {
     [`p总 = 1×(${fmt(v1)}) + 2×${fmt(v2)} = 0`, C.hl],
     [`Ek总 = ${fmt(ek)} J`, C.Ep],
   ]);
+  eqCard('eq', 1360, 430, 440, [
+    ['动量', '0=1\\cdot v_1+2\\cdot v_2', C.hl],
+    ['能量', '\\tfrac12\\cdot1\\cdot v_1^2+\\tfrac12\\cdot2\\cdot v_2^2=12', C.Ep],
+    ['结果', 'v_1=-4,\\ v_2=2', C.A],
+  ], smooth((s - 5.5) / 0.6));
   let cap = '静止的物体（3 kg）炸成两块：m1 = 1 kg，m2 = 2 kg，释放化学能 12 J';
   if (t > 0) cap = '0 = m1·v1 + m2·v2 → 两块反向飞出，质量小的跑得快';
   if (t > 1.2) cap = 'v1 = −4 m/s，v2 = 2 m/s；动能 0 → 12 J，来自化学能（唯一动能增加的情况）';
