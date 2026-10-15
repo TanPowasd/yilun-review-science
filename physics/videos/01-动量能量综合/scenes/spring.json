@@ -1,7 +1,7 @@
 {
   "id": "spring",
   "name": "3 弹簧",
-  "duration": 420,
+  "duration": 1209,
   "background": "#0f1424",
   "nodes": [
     {
@@ -30,7 +30,8 @@
       "reveal": 1,
       "component": "components/models.ts",
       "params": {
-        "model": "spring"
+        "model": "spring",
+        "freezes": "4.9:3.67,6.1:4.96,9.1:9.4,10.4:3.75"
       },
       "path": "",
       "blend": "source-over",
