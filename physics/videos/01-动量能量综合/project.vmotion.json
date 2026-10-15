@@ -25,7 +25,296 @@
   "sequences": [
     "sequences/main.json"
   ],
-  "assets": [],
+  "assets": [
+    {
+      "id": "vo-intro-0",
+      "name": "配音 intro-0",
+      "path": "narration/intro-0.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-intro-1",
+      "name": "配音 intro-1",
+      "path": "narration/intro-1.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-collision-0",
+      "name": "配音 collision-0",
+      "path": "narration/collision-0.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-collision-1",
+      "name": "配音 collision-1",
+      "path": "narration/collision-1.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-collision-2",
+      "name": "配音 collision-2",
+      "path": "narration/collision-2.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-collision-3",
+      "name": "配音 collision-3",
+      "path": "narration/collision-3.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-collision-4",
+      "name": "配音 collision-4",
+      "path": "narration/collision-4.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-board-0",
+      "name": "配音 board-0",
+      "path": "narration/board-0.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-board-1",
+      "name": "配音 board-1",
+      "path": "narration/board-1.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-board-2",
+      "name": "配音 board-2",
+      "path": "narration/board-2.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-board-3",
+      "name": "配音 board-3",
+      "path": "narration/board-3.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-spring-0",
+      "name": "配音 spring-0",
+      "path": "narration/spring-0.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-spring-1",
+      "name": "配音 spring-1",
+      "path": "narration/spring-1.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-spring-2",
+      "name": "配音 spring-2",
+      "path": "narration/spring-2.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-spring-3",
+      "name": "配音 spring-3",
+      "path": "narration/spring-3.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-spring-4",
+      "name": "配音 spring-4",
+      "path": "narration/spring-4.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-wedge-0",
+      "name": "配音 wedge-0",
+      "path": "narration/wedge-0.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-wedge-1",
+      "name": "配音 wedge-1",
+      "path": "narration/wedge-1.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-wedge-2",
+      "name": "配音 wedge-2",
+      "path": "narration/wedge-2.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-wedge-3",
+      "name": "配音 wedge-3",
+      "path": "narration/wedge-3.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-wedge-4",
+      "name": "配音 wedge-4",
+      "path": "narration/wedge-4.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-bullet-0",
+      "name": "配音 bullet-0",
+      "path": "narration/bullet-0.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-bullet-1",
+      "name": "配音 bullet-1",
+      "path": "narration/bullet-1.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-bullet-2",
+      "name": "配音 bullet-2",
+      "path": "narration/bullet-2.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-bullet-3",
+      "name": "配音 bullet-3",
+      "path": "narration/bullet-3.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-boat-0",
+      "name": "配音 boat-0",
+      "path": "narration/boat-0.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-boat-1",
+      "name": "配音 boat-1",
+      "path": "narration/boat-1.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-boat-2",
+      "name": "配音 boat-2",
+      "path": "narration/boat-2.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-explosion-0",
+      "name": "配音 explosion-0",
+      "path": "narration/explosion-0.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-explosion-1",
+      "name": "配音 explosion-1",
+      "path": "narration/explosion-1.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-explosion-2",
+      "name": "配音 explosion-2",
+      "path": "narration/explosion-2.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-outro-0",
+      "name": "配音 outro-0",
+      "path": "narration/outro-0.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-outro-1",
+      "name": "配音 outro-1",
+      "path": "narration/outro-1.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-outro-2",
+      "name": "配音 outro-2",
+      "path": "narration/outro-2.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-outro-3",
+      "name": "配音 outro-3",
+      "path": "narration/outro-3.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    },
+    {
+      "id": "vo-outro-4",
+      "name": "配音 outro-4",
+      "path": "narration/outro-4.mp3",
+      "type": "audio",
+      "managed": false,
+      "metadata": {}
+    }
+  ],
   "drawings": [],
   "sdkVersion": "0.1.0"
 }
