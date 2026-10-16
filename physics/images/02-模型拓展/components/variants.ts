@@ -4,15 +4,19 @@ import {defineComponent, rect, text, ellipse, path, formula} from '@vmotion/sdk'
 // 规则：每张卡片先画"前 → 后"示意图，再写方程——先字母式，下一行"代入"。
 const FONT = 'Vmotion Sans';
 const C = {
-  bg: '#0f1424', panel: '#182038', line: '#2c3655', text: '#eef2ff', muted: '#9aa8cb', sub: '#d6dcef',
-  A: '#4f9dff', B: '#ff8a4c', Q: '#ff5d6c', Ep: '#4cd6a0', Eg: '#c38bff', hl: '#ffd166', wall: '#5b6788',
+  bg: '#f6f3ec', panel: '#ffffff', line: '#ddd7ca', text: '#26282c', muted: '#857f73', sub: '#4a4d52',
+  A: '#2f6db5', B: '#b8642c', Q: '#c0392b', Ep: '#2e8b57', Eg: '#7b5aa6', hl: '#1f3a5f', wall: '#6b6b6b',
 };
+// 讲义风：物体用浅色底 + 同色描边
+const TINT: Record<string, string> = {'#2f6db5': '#e4eef9', '#b8642c': '#f7e9dc', '#7b5aa6': '#efe8f6'};
 
 let N: any[] = [];
 const T = (id: string, s: string, x: number, y: number, size: number, color = C.text, weight = 400, w = 1600, align: 'left' | 'center' | 'right' = 'left') =>
   N.push(text(id, s, {x, y, width: w, height: size * 1.5, fontSize: size, fill: color, fontWeight: weight, fontFamily: FONT, align, lineHeight: 1.3}));
-const R = (id: string, x: number, y: number, w: number, h: number, fill: string, radius = 6, stroke = '', sw = 0) =>
-  N.push(rect(id, {x, y, width: w, height: h, fill, radius, stroke, strokeWidth: sw}));
+const R = (id: string, x: number, y: number, w: number, h: number, fill: string, radius = 6, stroke = '', sw = 0) => {
+  if (TINT[fill] && !stroke) { stroke = fill; sw = 2.5; fill = TINT[fill]; }
+  N.push(rect(id, {x, y, width: w, height: h, fill, radius: Math.min(radius, 4), stroke, strokeWidth: sw}));
+};
 const P = (id: string, d: string, stroke: string, sw = 3, fill = 'transparent') =>
   N.push(path(id, d, {stroke, strokeWidth: sw, fill}));
 const E = (id: string, cx: number, cy: number, r: number, fill: string) =>
@@ -22,7 +26,7 @@ const F = (id: string, tex: string, x: number, y: number, size: number, color = 
 
 function block(id: string, x: number, gy: number, w: number, h: number, color: string, label: string, size = 20) {
   R(id, x, gy - h, w, h, color, 6);
-  if (label) T(id + '-l', label, x - 20, gy - h / 2 - size * 0.7, size, '#0b1020', 700, w + 40, 'center');
+  if (label) T(id + '-l', label, x - 20, gy - h / 2 - size * 0.7, size, color, 700, w + 40, 'center');
 }
 function arrow(id: string, x: number, y: number, len: number, color: string, label = '', vertical = false) {
   if (vertical) {
@@ -39,8 +43,9 @@ function arrow(id: string, x: number, y: number, len: number, color: string, lab
   if (label) { const lw = Math.max(Math.abs(len) + 100, 200); T(id + '-t', label, (x + x2) / 2 - lw / 2, y - 34, 20, color, 600, lw, 'center'); }
 }
 function ground(id: string, y: number, x1: number, x2: number, label = '光滑') {
-  P(id, `M ${x1} ${y} L ${x2} ${y}`, C.muted, 3);
-  if (label) T(id + '-t', label, x1, y + 6, 17, C.muted);
+  P(id, `M ${x1} ${y} L ${x2} ${y}`, C.wall, 2.5);
+  for (let gx = x1 + 6; gx < x2; gx += 16) P(`${id}-h${gx}`, `M ${gx} ${y + 1} L ${gx - 9} ${y + 10}`, C.wall, 1.5);
+  if (label) T(id + '-t', label, x1, y + 13, 17, C.muted);
 }
 function wall(id: string, x: number, y1: number, y2: number, side: 1 | -1) {
   P(id, `M ${x} ${y1} L ${x} ${y2}`, C.wall, 5);
@@ -71,13 +76,13 @@ function groove(id: string, gx: number, gy: number, r: number, color = C.B) {
   let d = `M ${gx - 10} ${gy} L ${gx + r + 24} ${gy} L ${gx + r + 24} ${gy - r} L ${gx + r} ${gy - r}`;
   for (let i = 1; i <= 24; i++) { const a = (i / 24) * Math.PI / 2; d += ` L ${gx + r * Math.cos(a)} ${gy - r + r * Math.sin(a)}`; }
   d += ` L ${gx - 10} ${gy} Z`;
-  P(id, d, color, 2, color);
+  P(id, d, color, 2.5, TINT[color] || color);
 }
 
 function card(id: string, x: number, y: number, w: number, h: number, title: string) {
-  R(id + '-bg', x, y, w, h, C.panel, 16, C.line, 2);
-  R(id + '-bar', x, y + 18, 6, 34, C.hl, 3);
-  T(id + '-t', title, x + 22, y + 16, 28, C.hl, 700, w - 40);
+  R(id + '-bg', x, y, w, h, C.panel, 4, C.line, 1.5);
+  T(id + '-t', title, x + 24, y + 16, 27, C.hl, 700, w - 40);
+  P(id + '-u', `M ${x + 24} ${y + 60} L ${x + w - 24} ${y + 60}`, C.line, 1.5);
 }
 // 方程区：tag 为"代入"时缩进变灰；tex 以 ! 开头时当普通文字
 function eqs(id: string, x: number, y: number, w: number, rows: [string, string, string?][], size = 24, gap = 50) {
@@ -91,9 +96,10 @@ function eqs(id: string, x: number, y: number, w: number, rows: [string, string,
   });
 }
 function header(k: number, title: string, sub: string) {
-  T('hk', `物理 02 · 模型拓展  图 ${k} / 8`, 60, 26, 22, C.hl, 600);
-  T('ht', title, 60, 56, 44, C.text, 700);
-  T('hs', sub, 60, 116, 22, C.muted, 500, 1800);
+  T('hk', `物理 · 动量与能量 · 模型拓展　${k} / 8`, 60, 28, 20, C.muted, 500);
+  T('ht', title, 60, 56, 42, C.hl, 700);
+  T('hs', sub, 60, 114, 21, C.muted, 500, 1800);
+  P('hr', 'M 60 150 L 1860 150', C.hl, 2);
 }
 
 // ---------------- 图 1：碰撞 ----------------
@@ -121,7 +127,7 @@ function img1() {
   ], 23, 66);
   // B 特殊质量
   x = 655; w = 610;
-  card('b', x, cy, w, ch, '② 三个特殊质量（动碰静）');
+  card('b', x, cy, w, ch, '② 动碰静的三种特殊情况');
   const rows: [string, number, number, string, string, number, string][] = [
     ['m1 = m2：交换速度', 60, 60, '碰后 A 停，B 以 v0 走', '', 0, ''],
     ['m1 ≫ m2：小的以约 2v0 飞出', 100, 40, '大的几乎不减速', '', 0, ''],
@@ -141,16 +147,16 @@ function img1() {
     if (i === 0) { block(`b-A2${i}`, bx, gy, wa, ha, C.A, '', 16); T(`b-s${i}`, '0', bx, ay - 30, 20, C.A, 700, wa, 'center'); block(`b-B2${i}`, bx + 110, gy, wb, hb, C.B, '', 16); arrow(`b-w${i}`, bx + 120, ay, 60, C.B, 'v0'); }
     if (i === 1) { block(`b-A2${i}`, bx, gy, wa, ha, C.A, '', 16); arrow(`b-w${i}a`, bx + 30, ay, 50, C.A, '≈v0'); block(`b-B2${i}`, bx + 140, gy, wb, hb, C.B, '', 16); arrow(`b-w${i}`, bx + 150, ay + 30, 60, C.B, '≈2v0'); }
     if (i === 2) { block(`b-A2${i}`, bx + 40, gy, wa, ha, C.A, '', 16); arrow(`b-w${i}a`, bx + 60, ay, -50, C.A, '≈−v0'); block(`b-B2${i}`, bx + 100, gy, wb, hb, C.B, '', 16); T(`b-s${i}`, '≈0', bx + 100, ay - 30, 20, C.B, 700, wb, 'center'); }
-    T(`b-n${i}`, rows[i][3], x + 24, gy + 8, 18, C.muted, 500, w - 40);
+    T(`b-n${i}`, rows[i][3], x + 24, gy + 14, 18, C.muted, 500, w - 40);
   });
   eqs('b-e', x + 24, cy + 700, w - 40, [
     ['公式', 'v_1\'=\\frac{m_1-m_2}{m_1+m_2}v_0'],
     ['公式', 'v_2\'=\\frac{2m_1}{m_1+m_2}v_0'],
-    ['注意', '!把条件代进这两个式子就能看出来', C.Q],
+    ['说明', '!把质量关系代入上面两式即可得到', C.muted],
   ], 24, 62);
   // C 范围
   x = 1280; w = 610;
-  card('c', x, cy, w, ch, '③ 不知道哪种碰撞：求范围');
+  card('c', x, cy, w, ch, '③ 碰撞类型未知：求速度范围');
   T('c-q', 'A（1 kg，6 m/s）撞静止的 B（2 kg）', x + 24, cy + 80, 22, C.text, 600, w - 40);
   const lx = x + 60, lw = 480, ly = cy + 270, sc = lw / 6;
   P('c-ax', `M ${lx} ${ly} L ${lx + lw} ${ly}`, C.muted, 3);
@@ -183,7 +189,7 @@ function img2() {
   dim('a-L', x + 380, x + 560, cy + 290, 'L = 0.15 m');
   rowTag('a-r2', x + 24, cy + 340, '打穿后');
   ground('a-g2', cy + 500, x + 24, x + w - 24);
-  block('a-M2', x + 420, cy + 500, 180, 110, C.B, '木块', 20); arrow('a-vM2', x + 480, cy + 420, 50, C.B, '5 m/s');
+  block('a-M2', x + 420, cy + 500, 180, 110, C.B, '木块', 20); arrow('a-vM2', x + 480, cy + 372, 50, C.B, '5 m/s');
   R('a-bul2', x + 680, cy + 444, 40, 12, C.A, 4); arrow('a-vb2', x + 720, cy + 450, 110, C.A, '55 m/s');
   eqs('a-e', x + 24, cy + 545, w - 40, [
     ['判断', '!先假设不穿：d = Q ÷ f = 450 ÷ 2250 = 0.2 m > 0.15 m → 打穿', C.hl],
@@ -195,17 +201,17 @@ function img2() {
     ['注意', '!另一根 v2 = 15 时 v1 = −35，子弹倒飞，舍去', C.Q],
   ], 24, 49);
   x = 970; w = 920;
-  card('b', x, cy, w, ch, '② 木块固定 vs 木块可动：谁打得深？');
+  card('b', x, cy, w, ch, '② 木块固定与木块可动的比较');
   rowTag('b-r1', x + 24, cy + 80, '固定');
   ground('b-g1', cy + 240, x + 24, x + 600, '');
   wall('b-w', x + 600, cy + 120, cy + 240, 1);
   block('b-M1', x + 420, cy + 240, 180, 110, C.B, '', 20);
-  R('b-hole1', x + 420, cy + 180, 100, 10, '#0b1020', 3); R('b-bul1', x + 500, cy + 179, 30, 12, C.A, 4);
+  R('b-hole1', x + 420, cy + 180, 100, 10, C.text, 3); R('b-bul1', x + 500, cy + 179, 30, 12, C.A, 4);
   dim('b-d1', x + 420, x + 520, cy + 112, 'd0 ≈ 0.222 m', C.Q, true);
   rowTag('b-r2', x + 24, cy + 280, '可动（光滑）');
   ground('b-g2', cy + 450, x + 24, x + w - 24);
   block('b-M2', x + 420, cy + 450, 180, 110, C.B, '', 20);
-  R('b-hole2', x + 420, cy + 390, 90, 10, '#0b1020', 3); R('b-bul2', x + 480, cy + 389, 30, 12, C.A, 4);
+  R('b-hole2', x + 420, cy + 390, 90, 10, C.text, 3); R('b-bul2', x + 480, cy + 389, 30, 12, C.A, 4);
   dim('b-d2', x + 420, x + 510, cy + 322, 'd = 0.2 m', C.Q, true);
   arrow('b-v2', x + 640, cy + 395, 70, C.B, '10 m/s 共速');
   eqs('b-e', x + 24, cy + 510, w - 40, [
@@ -227,7 +233,7 @@ function img3() {
   T('a-q', 'm = 1 kg 以 6 m/s 滑上静止木板 M = 2 kg，μ = 0.2，板长 L = 4.5 m', x + 24, cy + 66, 20, C.muted, 500, w - 40);
   rowTag('a-r1', x + 24, cy + 110, '刚滑上');
   ground('a-g1', cy + 260, x + 24, x + w - 24);
-  R('a-bd', x + 120, cy + 236, 520, 24, C.B, 4); T('a-bdl', '木板 M = 2 kg', x + 120, cy + 264, 18, C.B, 600, 520, 'center');
+  R('a-bd', x + 120, cy + 236, 520, 24, C.B, 4); T('a-bdl', '木板 M = 2 kg', x + 120, cy + 274, 18, C.B, 600, 520, 'center');
   block('a-m', x + 120, cy + 236, 54, 54, C.A, 'm', 18); arrow('a-vm', x + 147, cy + 150, 100, C.A, '6 m/s');
   dim('a-L', x + 120, x + 640, cy + 310, 'L = 4.5 m');
   rowTag('a-r2', x + 24, cy + 350, '滑出瞬间');
@@ -249,7 +255,7 @@ function img3() {
   T('b-q', '木板 M = 2 kg 以 3 m/s 运动，轻放 m = 1 kg，μ = 0.2', x + 24, cy + 66, 20, C.muted, 500, w - 40);
   rowTag('b-r1', x + 24, cy + 110, '刚放上');
   ground('b-g1', cy + 260, x + 24, x + w - 24);
-  R('b-bd', x + 120, cy + 236, 520, 24, C.B, 4); arrow('b-vM', x + 380, cy + 300, 90, C.B, '3 m/s');
+  R('b-bd', x + 120, cy + 236, 520, 24, C.B, 4); arrow('b-vM', x + 380, cy + 318, 90, C.B, '3 m/s');
   block('b-m', x + 400, cy + 236, 54, 54, C.A, 'm', 18); T('b-m0', '静止', x + 377, cy + 140, 20, C.A, 600, 100, 'center');
   arrow('b-f1', x + 460, cy + 210, 60, C.Q, ''); T('b-f1t', '摩擦力推物块向前', x + 470, cy + 170, 18, C.Q, 600, 260);
   rowTag('b-r2', x + 24, cy + 350, '共速');
@@ -299,7 +305,7 @@ function img4() {
   card('b', x, cy, w, ch, '② 地面也有摩擦：动量不守恒');
   const gy = cy + 330;
   ground('b-g', gy, x + 60, x + w - 60, '粗糙 μ2');
-  R('b-bd', x + 200, gy - 30, 520, 30, C.B, 4); T('b-bdl', '木板 M', x + 200, gy - 28, 20, '#0b1020', 700, 520, 'center');
+  R('b-bd', x + 200, gy - 30, 520, 30, C.B, 4); T('b-bdl', '木板 M', x + 200, gy - 28, 20, C.text, 700, 520, 'center');
   block('b-m', x + 260, gy - 30, 70, 70, C.A, 'm', 20); T('b-mu1', '上表面 μ1', x + 340, gy - 120, 18, C.muted, 500, 140);
   arrow('b-v0', x + 295, gy - 170, 100, C.A, 'v0');
   arrow('b-f1', x + 260, gy - 110, -70, C.Q, ''); T('b-f1t', 'μ1mg（阻碍物块）', x + 70, gy - 150, 18, C.Q, 600, 220);
@@ -442,7 +448,7 @@ function img6() {
     ['结论', '!总高 0.6 m；相对槽竖直上抛 → 落回槽口', C.A],
   ], 23, 56);
   x = 1280;
-  card('c', x, cy, w, ch, '③ 滑回来、离开槽：谁往哪走');
+  card('c', x, cy, w, ch, '③ 小球滑回并离开槽');
   T('c-q', '同 ②：m = 1 kg，M = 3 kg，v0 = 4 m/s', x + 24, cy + 66, 20, C.muted, 500, w - 40);
   gy = cy + 330;
   ground('c-g', gy, x + 24, x + w - 24, '');
@@ -468,7 +474,7 @@ function img7() {
   const gy = cy + 560;
   ground('a-g', gy, x + 24, x + w - 24, '地面');
   const balloon = (id: string, bx: number, by: number, py: number, lab: string) => {
-    E(id + '-bal', bx, by, 56, C.Eg);
+    N.push(ellipse(id + '-bal', {x: bx - 56, y: by - 56, width: 112, height: 112, fill: TINT[C.Eg], stroke: C.Eg, strokeWidth: 2.5}));
     P(id + '-lad', `M ${bx - 8} ${by + 56} L ${bx - 8} ${gy} M ${bx + 8} ${by + 56} L ${bx + 8} ${gy}`, C.muted, 2);
     E(id + '-ph', bx, py - 34, 11, C.A); P(id + '-pb', `M ${bx} ${py - 23} L ${bx} ${py}`, C.A, 4);
     T(id + '-l', lab, bx - 120, by - 100, 20, C.text, 700, 240, 'center');
@@ -487,7 +493,7 @@ function img7() {
   x = 970; w = 920;
   card('b', x, cy, w, ch, '② 滑块从光滑斜面滑下，斜面后退');
   T('b-q', 'm = 1 kg，斜面体 M = 4 kg，底边 b = 1 m，全部光滑', x + 24, cy + 66, 20, C.muted, 500, w - 40);
-  const wedgeTri = (id: string, gx: number, gy2: number) => P(id, `M ${gx} ${gy2} L ${gx + 400} ${gy2} L ${gx + 400} ${gy2 - 160} Z`, C.B, 2, C.B);
+  const wedgeTri = (id: string, gx: number, gy2: number) => P(id, `M ${gx} ${gy2} L ${gx + 400} ${gy2} L ${gx + 400} ${gy2 - 160} Z`, C.B, 2.5, TINT[C.B]);
   let g2 = cy + 330;
   rowTag('b-r1', x + 24, cy + 110, '开始');
   ground('b-g1', g2, x + 24, x + w - 24, '');
@@ -509,7 +515,7 @@ function img7() {
 
 // ---------------- 图 8：反冲爆炸 + 新模型 ----------------
 function img8() {
-  header(8, '反冲爆炸的拓展 + 两个新面孔', '最高点爆炸 · 冲击摆 · 摆球小车（g = 10 m/s²）');
+  header(8, '反冲爆炸的拓展、冲击摆与摆球小车', '最高点爆炸 · 冲击摆 · 摆球小车（g = 10 m/s²）');
   const cy = 160, ch = 890, w = 610;
   let x = 30;
   card('a', x, cy, w, ch, '① 炮弹在最高点爆炸');
@@ -553,7 +559,7 @@ function img8() {
     ['注意', '!不能一步列 ½mv0² = (m+M)gh：打入时有大量生热', C.Q],
   ], 23, 64);
   x = 1280;
-  card('c', x, cy, w, ch, '③ 摆球小车（圆弧槽换了皮）');
+  card('c', x, cy, w, ch, '③ 摆球小车（与圆弧槽同类）');
   T('c-q', '光滑面上小车 M 挂着小球 m，小球获得水平初速 v0', x + 24, cy + 66, 20, C.muted, 500, w - 40);
   const g3 = cy + 480;
   ground('c-g', g3, x + 24, x + w - 24, '');
