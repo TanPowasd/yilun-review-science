@@ -1,0 +1,27 @@
+{
+  "id": "main",
+  "name": "多木板演示图",
+  "duration": 3,
+  "tracks": [
+    {
+      "id": "visual",
+      "name": "画面",
+      "type": "video",
+      "muted": false,
+      "clips": [
+        {
+          "id": "clip-sheet",
+          "sceneId": "sheet",
+          "start": 0,
+          "duration": 3,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        }
+      ]
+    }
+  ],
+  "markers": []
+}
