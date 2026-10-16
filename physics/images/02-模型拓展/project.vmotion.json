@@ -1,0 +1,23 @@
+{
+  "formatVersion": 1,
+  "id": "a8d96c39-631e-46b4-bc74-cfe11bf1f3ff",
+  "name": "物理02 模型拓展演示图",
+  "width": 1920,
+  "height": 1080,
+  "fps": {
+    "num": 30,
+    "den": 1
+  },
+  "colorSpace": "srgb",
+  "sampleRate": 48000,
+  "activeSequence": "main",
+  "scenes": [
+    "scenes/sheet.json"
+  ],
+  "sequences": [
+    "sequences/main.json"
+  ],
+  "assets": [],
+  "drawings": [],
+  "sdkVersion": "0.1.0"
+}
