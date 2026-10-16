@@ -1,0 +1,73 @@
+{
+  "id": "main",
+  "name": "模型拓展演示图",
+  "duration": 8,
+  "tracks": [
+    {
+      "id": "visual",
+      "name": "画面",
+      "type": "video",
+      "muted": false,
+      "clips": [
+        {
+          "id": "clip-sheet",
+          "sceneId": "sheet",
+          "start": 0,
+          "duration": 8,
+          "sourceIn": 0,
+          "speed": 1,
+          "volume": 1,
+          "fadeIn": 0,
+          "fadeOut": 0
+        }
+      ]
+    }
+  ],
+  "markers": [
+    {
+      "id": "m-intro",
+      "frame": 0,
+      "label": "片头"
+    },
+    {
+      "id": "m-collision",
+      "frame": 381,
+      "label": "1 碰撞对比"
+    },
+    {
+      "id": "m-board",
+      "frame": 1736,
+      "label": "2 板块"
+    },
+    {
+      "id": "m-spring",
+      "frame": 3226,
+      "label": "3 弹簧"
+    },
+    {
+      "id": "m-wedge",
+      "frame": 4435,
+      "label": "4 圆弧槽"
+    },
+    {
+      "id": "m-bullet",
+      "frame": 5847,
+      "label": "5 子弹打木块"
+    },
+    {
+      "id": "m-boat",
+      "frame": 6963,
+      "label": "6 人船"
+    },
+    {
+      "id": "m-explosion",
+      "frame": 7939,
+      "label": "7 爆炸反冲"
+    },
+    {
+      "id": "m-outro",
+      "frame": 8820,
+      "label": "片尾口诀"
+    }
+  ]
+}
