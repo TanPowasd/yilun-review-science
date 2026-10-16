@@ -1,0 +1,23 @@
+{
+  "formatVersion": 1,
+  "id": "d83dfd35-9235-4e1b-a77d-c84a2a16cded",
+  "name": "物理04 多木板演示图",
+  "width": 1920,
+  "height": 1080,
+  "fps": {
+    "num": 30,
+    "den": 1
+  },
+  "colorSpace": "srgb",
+  "sampleRate": 48000,
+  "activeSequence": "main",
+  "scenes": [
+    "scenes/sheet.json"
+  ],
+  "sequences": [
+    "sequences/main.json"
+  ],
+  "assets": [],
+  "drawings": [],
+  "sdkVersion": "0.1.0"
+}
