@@ -15,6 +15,11 @@
 
 学科：`math/` 数学 · `physics/` 物理 · `chemistry/` 化学 · `biology/` 生物
 
+## 各科目录
+
+- 物理：[physics/README.md](physics/README.md)（总览 + 动量能量专题 + 板块模型专题）
+- 数学、化学、生物：待开始
+
 ## 进度
 
 见 [PROGRESS.md](PROGRESS.md)。
