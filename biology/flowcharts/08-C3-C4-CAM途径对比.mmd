@@ -1,0 +1,41 @@
+flowchart TB
+  subgraph C3["C₃ 植物（水稻、小麦）· 叶肉细胞"]
+    direction LR
+    a1["CO₂"] -->|"Rubisco"| a2["2C₃"]
+    a0["C₅"] --> a2
+    a2 -->|"ATP、NADPH"| a3["糖类"]
+    a2 -->|"再生"| a0
+    o1["O₂（高温、气孔关）"] -.->|"Rubisco 加氧"| a4["光呼吸：消耗 ATP，放出 CO₂"]
+    a0 -.-> a4
+  end
+  subgraph C4["C₄ 植物（玉米、甘蔗）· 空间分开"]
+    direction LR
+    subgraph M["叶肉细胞（有基粒）"]
+      b1["CO₂ → HCO₃⁻"] -->|"PEP 羧化酶<br>亲和力高、不与 O₂ 反应"| b2["草酰乙酸（C₄）"]
+      b0["PEP（C₃）"] --> b2
+      b2 --> b3["苹果酸"]
+      b5["丙酮酸"] -->|"消耗 ATP"| b0
+    end
+    subgraph BS["维管束鞘细胞（无基粒）"]
+      b3x["苹果酸"] -->|"脱羧"| b4["CO₂（浓缩约 10 倍）"]
+      b3x --> b5x["丙酮酸"]
+      b4 -->|"Rubisco<br>卡尔文循环"| b6["糖类（积累淀粉）"]
+    end
+    b3 ==>|"胞间连丝"| b3x
+    b5x ==>|"胞间连丝"| b5
+  end
+  subgraph CAM["CAM 植物（仙人掌、菠萝）· 时间分开，同一细胞"]
+    direction LR
+    subgraph N["夜间：气孔开"]
+      c1["CO₂"] -->|"PEP 羧化酶"| c2["苹果酸 → 存入液泡<br>pH 下降"]
+    end
+    subgraph D["白天：气孔关（省水）"]
+      c3["苹果酸出液泡"] -->|"脱羧"| c4["CO₂"]
+      c4 -->|"卡尔文循环<br>ATP、NADPH 来自光反应"| c5["糖类"]
+    end
+    c2 ==>|"天亮"| c3
+  end
+  C3 ~~~ C4
+  C4 ~~~ CAM
+  classDef r fill:#fde8e8,stroke:#a33,color:#3a1010
+  class o1,a4 r
