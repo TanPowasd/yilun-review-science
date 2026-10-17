@@ -18,7 +18,8 @@
 ## 各科目录
 
 - 物理：[physics/README.md](physics/README.md)（总览 + 动量能量专题 + 板块模型专题）
-- 数学、化学、生物：待开始
+- 生物：[目录](biology/README.md)，已完成 00 全书总览
+- 数学、化学：待开始
 
 ## 进度
 
