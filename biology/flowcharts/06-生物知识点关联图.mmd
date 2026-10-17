@@ -1,0 +1,287 @@
+flowchart TB
+  subgraph S0["必修1 分子与细胞"]
+    A1["细胞学说<br>生命系统层次"]:::m1
+    A2["原核/真核<br>病毒"]:::m1
+    A3["元素·水·无机盐"]:::m1
+    A4["糖类与脂质"]:::m1
+    A5["蛋白质<br>结构与计算"]:::m1
+    A6["核酸"]:::m1
+    A7["有机物检测实验"]:::m1
+    A8["细胞膜<br>(细胞质膜)"]:::m1
+    A9["细胞器分工<br>分泌蛋白"]:::m1
+    A10["细胞核"]:::m1
+    A11["渗透作用<br>质壁分离"]:::m1
+    A12["跨膜运输方式"]:::m1
+    A13["酶及实验"]:::m1
+    A14["ATP"]:::m1
+    A15["细胞呼吸"]:::m1
+    A16["光合色素<br>提取分离"]:::m1
+    A17["光合作用<br>光反应·暗反应"]:::m1
+    A18["光合与呼吸<br>综合曲线"]:::m1
+    A19["有丝分裂<br>观察实验"]:::m1
+    A20["分化·全能性<br>干细胞"]:::m1
+    A21["衰老·凋亡"]:::m1
+  end
+  subgraph S1["必修2 遗传与进化"]
+    B1["分离定律"]:::m2
+    B2["自由组合定律<br>比例变式"]:::m2
+    B3["减数分裂<br>受精"]:::m2
+    B4["伴性遗传<br>系谱判断"]:::m2
+    B5["DNA是遗传物质<br>的实验"]:::m2
+    B6["DNA结构·复制<br>计算"]:::m2
+    B7["转录与翻译"]:::m2
+    B8["中心法则<br>基因控制性状"]:::m2
+    B9["表观遗传<br>表达调控"]:::m2
+    B10["基因突变<br>基因重组"]:::m2
+    B11["染色体变异<br>染色体组"]:::m2
+    B12["育种方法"]:::m2
+    B13["进化理论<br>基因频率"]:::m2
+  end
+  subgraph S2["选必1 稳态与调节"]
+    C1["内环境与稳态"]:::m3
+    C2["反射弧<br>静息/动作电位"]:::m3
+    C3["突触传递"]:::m3
+    C4["神经分级调节<br>人脑·自主神经"]:::m3
+    C5["血糖调节"]:::m3
+    C6["分级与反馈调节<br>甲状腺等"]:::m3
+    C7["体温与水盐平衡"]:::m3
+    C8["体液免疫<br>细胞免疫"]:::m3
+    C9["免疫失调<br>免疫应用"]:::m3
+    C10["生长素"]:::m3
+    C11["其他植物激素<br>环境因素"]:::m3
+  end
+  subgraph S3["选必2 生物与环境"]
+    D1["种群数量特征<br>调查方法"]:::m4
+    D2["J形/S形增长<br>K值"]:::m4
+    D3["群落结构·种间关系<br>生态位"]:::m4
+    D4["群落演替"]:::m4
+    D5["土壤小动物<br>丰富度调查"]:::m4
+    D6["生态系统结构<br>成分·食物网"]:::m4
+    D7["能量流动"]:::m4
+    D8["物质循环·生物富集<br>信息传递"]:::m4
+    D9["生态系统稳定性"]:::m4
+    D10["生物多样性<br>生态工程"]:::m4
+  end
+  subgraph S4["选必3 生物技术与工程"]
+    E1["传统发酵<br>果酒果醋泡菜"]:::m5
+    E2["微生物培养<br>分离纯化·计数"]:::m5
+    E3["植物组织培养<br>体细胞杂交"]:::m5
+    E4["动物细胞培养<br>单抗·核移植"]:::m5
+    E5["胚胎工程"]:::m5
+    E6["工具酶与载体"]:::m5
+    E7["基因工程<br>基本程序"]:::m5
+    E8["PCR·电泳<br>DNA粗提取"]:::m5
+    E9["蛋白质工程"]:::m5
+    E10["安全与伦理"]:::m5
+  end
+  A3 -->|"组成有机物"| A4
+  A3 -->|"N是蛋白质特征元素"| A5
+  A3 -->|"P参与组成核酸"| A6
+  A4 -->|"还原糖·脂肪检测"| A7
+  A5 -->|"双缩脲检测"| A7
+  A5 -->|"酶多数是蛋白质"| A13
+  A5 -->|"膜蛋白决定功能"| A8
+  A5 -->|"分泌蛋白合成"| A9
+  A5 -.->|"抗体是蛋白质"| C8
+  A6 -.->|"DNA双螺旋"| B6
+  A6 -.->|"三种RNA"| B7
+  A6 -.->|"DNA粗提取"| E8
+  A1 -->|"细胞统一性"| A2
+  A2 -->|"原核只有核糖体"| A9
+  A2 -.->|"酵母菌/醋酸菌/乳酸菌"| E1
+  A2 -.->|"病毒引发免疫"| C8
+  A8 -->|"选择透过性"| A12
+  A8 -->|"原生质层相当于半透膜"| A11
+  A8 -.->|"离子通道"| C2
+  A8 -.->|"膜的流动性(细胞融合)"| E3
+  A9 -->|"线粒体"| A15
+  A9 -->|"叶绿体"| A17
+  A9 -.->|"核糖体上翻译"| B7
+  A10 -.->|"染色质含DNA"| B6
+  A11 -->|"水的跨膜"| A12
+  A11 -.->|"渗透压"| C7
+  A11 -.->|"渗透压"| C1
+  A12 -->|"主动运输耗ATP"| A14
+  A12 -.->|"K+外流·Na+内流=协助扩散"| C2
+  A13 -->|"ATP合成/水解需酶"| A14
+  A13 -->|"呼吸各阶段需酶"| A15
+  A13 -.->|"限制酶·DNA连接酶"| E6
+  A13 -.->|"耐高温DNA聚合酶"| E8
+  A13 -.->|"RNA聚合酶"| B7
+  A14 -->|"产生ATP"| A15
+  A14 -->|"光反应产生ATP"| A17
+  A16 -->|"吸收光能"| A17
+  A15 -->|"总光合=净光合+呼吸"| A18
+  A17 --> A18
+  A15 -.->|"无氧呼吸=酒精发酵"| E1
+  A18 -.->|"同化量与呼吸散失"| D7
+  A17 -.->|"碳循环固定CO2"| D8
+  A15 -.->|"呼吸释放CO2"| D8
+  A19 -.->|"有丝 vs 减数对比"| B3
+  A19 -.->|"细胞增殖"| E4
+  A20 -.->|"全能性"| E3
+  A20 -.->|"基因选择性表达"| B9
+  A21 -.->|"靶细胞裂解属凋亡"| C8
+  B1 -->|"两对基因"| B2
+  B3 -->|"等位基因随同源染色体分离"| B1
+  B3 -->|"非等位基因自由组合"| B2
+  B3 -->|"性染色体"| B4
+  B3 -->|"交叉互换·自由组合=重组"| B10
+  B3 -->|"减数异常→非整倍体"| B11
+  B5 -->|"DNA是遗传物质"| B6
+  B6 -->|"模板"| B7
+  B6 -.->|"复制原理=PCR"| E8
+  B7 --> B8
+  B8 -->|"表达可被调控"| B9
+  B10 -->|"碱基替换→密码子改变"| B7
+  B10 -->|"提供原材料"| B13
+  B11 -->|"提供原材料"| B13
+  B10 -->|"诱变/杂交育种"| B12
+  B11 -->|"单倍体/多倍体育种"| B12
+  B12 -.->|"花药离体培养"| E3
+  B12 -.->|"基因工程育种"| E7
+  B11 -.->|"体细胞杂交得多倍体"| E3
+  B13 -.->|"协同进化"| D3
+  B13 -.->|"生物多样性"| D10
+  C1 --> C5
+  C1 --> C7
+  C2 -->|"兴奋传到突触"| C3
+  C3 --> C4
+  C4 -->|"下丘脑调胰岛"| C5
+  C4 -->|"下丘脑体温/水盐中枢"| C7
+  C6 -->|"甲状腺激素产热"| C7
+  C6 -.->|"负反馈"| D9
+  C8 --> C9
+  C9 -->|"1型糖尿病=自身免疫"| C5
+  C8 -.->|"B细胞+骨髓瘤→单抗"| E4
+  C10 -->|"协同·拮抗"| C11
+  C10 -.->|"生长素/细胞分裂素比例"| E3
+  C11 -.->|"化学信息"| D8
+  D1 -->|"出生率死亡率"| D2
+  D2 -->|"K值受种间关系影响"| D3
+  D3 --> D4
+  D5 -->|"丰富度"| D3
+  D3 -->|"捕食→食物链"| D6
+  D6 -->|"沿食物链流动"| D7
+  D6 -->|"生物富集"| D8
+  D7 -->|"能量流动与物质循环相伴"| D8
+  D8 --> D9
+  D9 --> D10
+  E2 -.->|"计数=种群密度思想"| D1
+  E2 -.->|"微生物多为分解者"| D6
+  E1 --> E2
+  E3 --> E4
+  E4 -->|"核移植→胚胎移植"| E5
+  E6 --> E7
+  E8 -->|"获取目的基因"| E7
+  E7 -->|"改造蛋白质"| E9
+  E7 --> E10
+  E5 -->|"克隆人"| E10
+  classDef m1 fill:#e8f1fb,stroke:#2b5c8a,color:#1b2b40
+  classDef m2 fill:#fdeee6,stroke:#b5562b,color:#40241b
+  classDef m3 fill:#eaf6ec,stroke:#2f7a45,color:#1b3322
+  classDef m4 fill:#fbf6e2,stroke:#9a7b1c,color:#3a3010
+  classDef m5 fill:#f1ebfa,stroke:#6a46a0,color:#2a1b40
+  linkStyle 0 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 1 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 2 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 3 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 4 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 5 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 6 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 7 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 8 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 9 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 10 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 11 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 12 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 13 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 14 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 15 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 16 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 17 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 18 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 19 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 20 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 21 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 22 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 23 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 24 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 25 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 26 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 27 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 28 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 29 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 30 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 31 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 32 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 33 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 34 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 35 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 36 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 37 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 38 stroke:#2b5c8a,stroke-width:1.5px
+  linkStyle 39 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 40 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 41 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 42 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 43 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 44 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 45 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 46 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 47 stroke:#2b5c8a,stroke-width:2px
+  linkStyle 48 stroke:#b5562b,stroke-width:1.5px
+  linkStyle 49 stroke:#b5562b,stroke-width:1.5px
+  linkStyle 50 stroke:#b5562b,stroke-width:1.5px
+  linkStyle 51 stroke:#b5562b,stroke-width:1.5px
+  linkStyle 52 stroke:#b5562b,stroke-width:1.5px
+  linkStyle 53 stroke:#b5562b,stroke-width:1.5px
+  linkStyle 54 stroke:#b5562b,stroke-width:1.5px
+  linkStyle 55 stroke:#b5562b,stroke-width:1.5px
+  linkStyle 56 stroke:#b5562b,stroke-width:2px
+  linkStyle 57 stroke:#b5562b,stroke-width:1.5px
+  linkStyle 58 stroke:#b5562b,stroke-width:1.5px
+  linkStyle 59 stroke:#b5562b,stroke-width:1.5px
+  linkStyle 60 stroke:#b5562b,stroke-width:1.5px
+  linkStyle 61 stroke:#b5562b,stroke-width:1.5px
+  linkStyle 62 stroke:#b5562b,stroke-width:1.5px
+  linkStyle 63 stroke:#b5562b,stroke-width:1.5px
+  linkStyle 64 stroke:#b5562b,stroke-width:2px
+  linkStyle 65 stroke:#b5562b,stroke-width:2px
+  linkStyle 66 stroke:#b5562b,stroke-width:2px
+  linkStyle 67 stroke:#b5562b,stroke-width:2px
+  linkStyle 68 stroke:#b5562b,stroke-width:2px
+  linkStyle 69 stroke:#2f7a45,stroke-width:1.5px
+  linkStyle 70 stroke:#2f7a45,stroke-width:1.5px
+  linkStyle 71 stroke:#2f7a45,stroke-width:1.5px
+  linkStyle 72 stroke:#2f7a45,stroke-width:1.5px
+  linkStyle 73 stroke:#2f7a45,stroke-width:1.5px
+  linkStyle 74 stroke:#2f7a45,stroke-width:1.5px
+  linkStyle 75 stroke:#2f7a45,stroke-width:1.5px
+  linkStyle 76 stroke:#2f7a45,stroke-width:2px
+  linkStyle 77 stroke:#2f7a45,stroke-width:1.5px
+  linkStyle 78 stroke:#2f7a45,stroke-width:1.5px
+  linkStyle 79 stroke:#2f7a45,stroke-width:2px
+  linkStyle 80 stroke:#2f7a45,stroke-width:1.5px
+  linkStyle 81 stroke:#2f7a45,stroke-width:2px
+  linkStyle 82 stroke:#2f7a45,stroke-width:2px
+  linkStyle 83 stroke:#9a7b1c,stroke-width:1.5px
+  linkStyle 84 stroke:#9a7b1c,stroke-width:1.5px
+  linkStyle 85 stroke:#9a7b1c,stroke-width:1.5px
+  linkStyle 86 stroke:#9a7b1c,stroke-width:1.5px
+  linkStyle 87 stroke:#9a7b1c,stroke-width:1.5px
+  linkStyle 88 stroke:#9a7b1c,stroke-width:1.5px
+  linkStyle 89 stroke:#9a7b1c,stroke-width:1.5px
+  linkStyle 90 stroke:#9a7b1c,stroke-width:1.5px
+  linkStyle 91 stroke:#9a7b1c,stroke-width:1.5px
+  linkStyle 92 stroke:#9a7b1c,stroke-width:1.5px
+  linkStyle 93 stroke:#6a46a0,stroke-width:2px
+  linkStyle 94 stroke:#6a46a0,stroke-width:2px
+  linkStyle 95 stroke:#6a46a0,stroke-width:1.5px
+  linkStyle 96 stroke:#6a46a0,stroke-width:1.5px
+  linkStyle 97 stroke:#6a46a0,stroke-width:1.5px
+  linkStyle 98 stroke:#6a46a0,stroke-width:1.5px
+  linkStyle 99 stroke:#6a46a0,stroke-width:1.5px
+  linkStyle 100 stroke:#6a46a0,stroke-width:1.5px
+  linkStyle 101 stroke:#6a46a0,stroke-width:1.5px
+  linkStyle 102 stroke:#6a46a0,stroke-width:1.5px
