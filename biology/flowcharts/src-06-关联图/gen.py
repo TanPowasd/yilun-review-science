@@ -59,6 +59,6 @@ for a,b,t in E:
     tt=t or "前后承接"
     rows.append(f"| {name[a]}（{modof[a].split()[0]}） | {name[b]}（{modof[b].split()[0]}） | {tt} | {c} |")
     csv.append(f"{name[a]},{name[b]},{tt},{'是' if c else ''}")
-open("06-生物知识点关联表.md","w").write("\n".join(rows)+"\n")
+# 关联清单已并入 notes/06-生物知识点关联图.md：open("06-生物知识点关联表.md","w").write("\n".join(rows)+"\n")
 open("06-生物知识点关联表.csv","w",encoding="utf-8-sig").write("\n".join(csv)+"\n")
 print(len(E),sum(modof[a]!=modof[b] for a,b,t in E))

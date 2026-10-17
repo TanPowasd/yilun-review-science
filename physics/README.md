@@ -6,7 +6,7 @@
 
 - 笔记：[00-物理知识体系总览](notes/00-物理知识体系总览.md)
 - 表格：[知识点 · 难度 · 频率 · 占分（72 个知识点）](tables/00-物理知识点-难度频率占分.md)（另有 [csv](tables/00-物理知识点-难度频率占分.csv)）
-- 流程图：[知识体系](flowcharts/00-总览-知识体系.png) · [力学](flowcharts/01-力学.png) · [电磁学](flowcharts/02-电磁学.png) · [振动波动光学](flowcharts/03-振动波动光学.png) · [热学](flowcharts/04-热学.png) · [近代物理](flowcharts/05-近代物理.png) · [实验](flowcharts/06-实验.png)
+- 流程图：[知识体系](flowcharts/00-总览-知识体系.png) · [力学](flowcharts/00-1-力学.png) · [电磁学](flowcharts/00-2-电磁学.png) · [振动波动光学](flowcharts/00-3-振动波动光学.png) · [热学](flowcharts/00-4-热学.png) · [近代物理](flowcharts/00-5-近代物理.png) · [实验](flowcharts/00-6-实验.png)
 
 ## 专题一：动量与能量
 
