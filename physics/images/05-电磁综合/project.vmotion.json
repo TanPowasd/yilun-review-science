@@ -1,0 +1,23 @@
+{
+  "formatVersion": 1,
+  "id": "dfb2a883-8197-4cc5-be93-d9a53e4fa5c7",
+  "name": "物理05 电磁综合演示图",
+  "width": 1920,
+  "height": 1080,
+  "fps": {
+    "num": 30,
+    "den": 1
+  },
+  "colorSpace": "srgb",
+  "sampleRate": 48000,
+  "activeSequence": "main",
+  "scenes": [
+    "scenes/sheet.json"
+  ],
+  "sequences": [
+    "sequences/main.json"
+  ],
+  "assets": [],
+  "drawings": [],
+  "sdkVersion": "0.1.0"
+}
