@@ -1,0 +1,15 @@
+{
+  "useMarkdownLinks": false,
+  "newLinkFormat": "shortest",
+  "alwaysUpdateLinks": true,
+  "showFrontmatter": false,
+  "readableLineLength": true,
+  "attachmentFolderPath": "./images",
+  "showUnsupportedFiles": false,
+  "userIgnoreFilters": [
+    "physics/videos/",
+    "physics/images/02-模型拓展/AGENTS.md",
+    "physics/videos/01-动量能量综合/AGENTS.md",
+    "biology/flowcharts/src-06-关联图/"
+  ]
+}

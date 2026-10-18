@@ -1,2 +1,8 @@
 .vmotion/
 *.mp4
+
+# Obsidian 本地状态
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
