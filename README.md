@@ -19,7 +19,7 @@
 
 - 物理：[physics/README.md](physics/README.md)（总览 + 动量能量 + 板块模型 + 电磁学）
 - 生物：[目录](biology/README.md)（00 全书总览 + 06 知识点关联图 + 01 光合作用与细胞呼吸）
-- 数学：[目录](math/README.md)（00 全书总览 + 01 数列）
+- 数学：[目录](math/README.md)（00 全书总览、01 数列、02 数学归纳法）
 - 化学：待开始
 
 ## 进度
